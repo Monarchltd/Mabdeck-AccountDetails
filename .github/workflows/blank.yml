@@ -28,7 +28,10 @@ jobs:
         run: cd ..      
       
       - name: Install
-        run: pip install pytest --user      
+        run: pip install pytest --user
+
+      - name: Install reporting
+        run: pip install pytest-html
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
@@ -38,3 +41,14 @@ jobs:
       - name: Run a multi-line script
         run: |
           pytest Tests/test_add.py
+
+      - name: Run report
+        run: |
+          pytest --html=report.html
+
+      - name: Upload Report
+        uses: actions/upload-artifacts@v4
+        with:
+          name: TestReport
+          path: report.html
+      
