@@ -47,7 +47,6 @@ jobs:
           pytest --html=report.html
 
       - name: Upload Report
-        uses: actions/upload-artifacts@v4
         with:
           name: TestReport
           path: report.html
