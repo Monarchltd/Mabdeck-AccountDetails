@@ -23,6 +23,9 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - uses: actions/checkout@v5    
+
+      - name: change directory
+        run: cd..      
       
       - name: Install
         run: pip install pytest --user      
@@ -34,4 +37,4 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          pytest
+          pytest pages/add.py
