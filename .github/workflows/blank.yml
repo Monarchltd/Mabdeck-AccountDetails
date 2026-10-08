@@ -44,7 +44,7 @@ jobs:
 
       - name: Run report
         run: |
-          pytest --html=report.html
+          pytest --html=report.html --self-contained-html
         env:
           PYTEST_ADDOPTS: "--html=report.html"
 
