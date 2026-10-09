@@ -44,7 +44,7 @@ jobs:
 
       - name: Run report
         run: |
-          pytest --html=report.html
+          pytest --html=report.html --self-contained-html
         env:
           PYTEST_ADDOPTS: "--html=report.html"
 
@@ -53,4 +53,12 @@ jobs:
         with:
           name: pytest-html-report
           path: report.html
+
+      - name: Commit Report
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add report.html
+          git commit -m "Update pytest report"
+          git push
       
